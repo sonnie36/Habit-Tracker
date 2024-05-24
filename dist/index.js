@@ -25,6 +25,10 @@ add.addEventListener('click', () => {
     Submit.addEventListener('click', () => {
         const habitName = inputName.value;
         const startDate = inputDate.value;
+        if (!habitName || !startDate) {
+            console.log('Both habit name and start date must be provided');
+            return;
+        }
         let data = {
             name: habitName,
             startDate: startDate
@@ -35,17 +39,24 @@ add.addEventListener('click', () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
-        }).then(response => response.json());
+        }).then(response => response.json())
+            .then(() => {
+            inputName.value = '';
+            inputDate.value = '';
+            // Call displayCards after the new habit data has been sent to the server
+            displayCards();
+        });
     });
     details.appendChild(nameLabel);
     details.appendChild(inputName);
     details.appendChild(DateLabel);
     details.appendChild(inputDate);
     details.appendChild(Submit);
-    //   displayCards();
 });
-// ...
 const displayCards = () => {
+    while (cards.firstChild) {
+        cards.removeChild(cards.firstChild);
+    }
     fetch('http://localhost:3000/habits', {
         method: 'GET'
     })
@@ -59,8 +70,34 @@ const displayCards = () => {
             habitName.textContent = habit.name;
             const startDate = document.createElement('p');
             startDate.textContent = habit.startDate;
+            const startDateDate = new Date(habit.startDate);
+            const currentDate = new Date();
+            const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+            const diffDays = Math.round(Math.abs((currentDate.getTime() - startDateDate.getTime()) / oneDay));
+            const currentStreak = document.createElement('p');
+            currentStreak.textContent = ` ${diffDays}`;
+            currentStreak.classList.add('streak');
+            const gold = document.createElement('div');
+            gold.classList.add('gold');
+            gold.appendChild(currentStreak);
+            const fire = document.createElement('div');
+            fire.innerHTML = `<ion-icon name="flame"></ion-icon>`;
+            fire.classList.add('fire');
+            gold.appendChild(fire);
+            const deleteCard = document.createElement('button');
+            deleteCard.textContent = 'Delete';
+            deleteCard.classList.add('deleteBtn');
+            deleteCard.addEventListener('click', () => {
+                fetch(`http://localhost:3000/habits/${habit.id}`, {
+                    method: 'DELETE'
+                }).then(() => {
+                    displayCards();
+                });
+            });
             card.appendChild(habitName);
             card.appendChild(startDate);
+            card.appendChild(gold);
+            card.appendChild(deleteCard);
             cards.appendChild(card);
         });
     })

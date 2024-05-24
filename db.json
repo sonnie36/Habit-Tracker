@@ -2,69 +2,29 @@
   "users": [],
   "habits": [
     {
-      "id": "2706",
-      "name": "Smoking",
-      "startDate": "2024-05-16"
-    },
-    {
-      "id": "05d6",
-      "name": "Games",
-      "startDate": "2024-05-06"
-    },
-    {
-      "id": "857b",
-      "name": "Watching",
-      "startDate": "2024-04-28"
-    },
-    {
-      "id": "48ef",
-      "name": "Singing",
-      "startDate": "2024-05-01"
-    },
-    {
-      "id": "8c0d",
-      "name": "drawing",
+      "id": "fc15",
+      "name": "Sleeping",
       "startDate": "2024-04-29"
     },
     {
-      "id": "b850",
-      "name": "Swimming",
-      "startDate": "2024-05-07"
+      "id": "ba21",
+      "name": "Drawing",
+      "startDate": "2024-04-30"
     },
     {
-      "id": "d259",
+      "id": "2402",
       "name": "Swimming",
-      "startDate": "2024-05-07"
+      "startDate": "2024-05-20"
     },
     {
-      "id": "fdd5",
-      "name": "Swimming",
-      "startDate": "2024-05-07"
+      "id": "3771",
+      "name": "Walk the dog",
+      "startDate": "2024-05-21"
     },
     {
-      "id": "c2ce",
-      "name": "Swimming",
-      "startDate": "2024-05-07"
-    },
-    {
-      "id": "ea44",
-      "name": "Swimming",
-      "startDate": "2024-05-07"
-    },
-    {
-      "id": "a8d6",
-      "name": "Swimming",
-      "startDate": "2024-05-07"
-    },
-    {
-      "id": "78d3",
-      "name": "Swimming",
-      "startDate": "2024-05-07"
-    },
-    {
-      "id": "05e5",
-      "name": "Swimming",
-      "startDate": "2024-05-07"
+      "id": "847c",
+      "name": "Take a walk",
+      "startDate": "2024-05-18"
     }
   ],
   "categories": []

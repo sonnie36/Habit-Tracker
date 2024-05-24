@@ -18,7 +18,6 @@
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
     margin-bottom: 5px;
   }
-  
   .logo {
     color: tomato;
     font-size: 20px;
@@ -52,8 +51,9 @@
   
   .hero {
     width: 100%;
-    background: white;
-    padding: 20px;
+    background: tomato;
+    color:white;
+    padding: 0 20px;
   }
   
   .imgDiv {
@@ -75,8 +75,8 @@
   
   .addBtn {
     border: none;
-    background-color: tomato;
-    color: whitesmoke;
+    background-color: white;
+    color: tomato;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -108,13 +108,101 @@
 .submitBtn{
     outline: none;
     border: none;
-    background-color: tomato;
-    color: white;
+    background-color: white;
+    color: tomato;
     border-radius: 5px;
     padding: 10px;
+    margin: 10px 0;
 }  
 .card{
-    width:200px;
+    width:300px;
     padding:10px;
-    border:1px solid tomato;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1) ;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+}
+.cardDisplay{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    /* margin-left:15%; */
+    padding:50px;
+    
+    
+}
+.deleteBtn{
+  background-color: tomato;
+  color:white;
+  padding:10px;
+  border:10px;
+}
+.gold{
+  position: relative;
+  width:50px;
+  height:50px;
+  border: 5px solid gold;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:5px;
+  margin-top: 15px;
+}
+
+.fire{
+  position: absolute; /* Add this */
+  top: -20px; /* Adjust as needed */
+  right: -10px; /* Adjust as needed */
+  width:40px;
+  height:40px;
+  color: gold;
+  z-index:1000;
+  
+  
+}
+@media screen and (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+  }
+
+  .hero1 {
+    flex-direction: column;
+  }
+
+  .imgDiv {
+    flex-direction: column;
+  }
+
+  .addContainer {
+    align-items: center;
+  }
+
+  .cardDisplay {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  .nav {
+    flex-direction: row;
+  }
+
+  .hero1 {
+    flex-direction: row;
+  }
+
+  .imgDiv {
+    flex-direction: row;
+  }
+
+  .addContainer {
+    align-items: flex-start;
+  }
+
+  .cardDisplay {
+    justify-content: space-around;
+  }
 }
